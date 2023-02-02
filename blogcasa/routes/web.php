@@ -15,19 +15,8 @@ use App\Http\Controllers\CursoController;
 */
 
 Route::get('/', HomeController::class);
-
-Route::get('cursos', [CursoController::class, 'index']);
-
-Route::get('cursos/create', [CursoController::class, 'create']);
-
-
-Route::get('cursos/{curso}', [CursoController::class, 'show']);
-
-/* Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
-    if($categoria != null) {
-        return "Bienvenido al curso $curso, de la categoria $categoria";
-    }
-    else{
-        return "Bienvenido al curso $curso";
-    }
-}); */
+Route::controller(CursoController::class)->group(function(){
+    Route::get('cursos', 'index');
+    Route::get('cursos/create', 'create');
+    Route::get('cursos/{curso}', 'show'); 
+});
