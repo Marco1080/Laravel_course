@@ -28,7 +28,7 @@
         <label>
             Descripcion:
             <br>
-            <textarea type="text" name="descripcion" rows="5">{{old('descripcion'), $curso->descripcion}}</textarea>
+            <textarea type="text" name="descripcion" rows="5">{{$curso->descripcion}}</textarea>
         </label>
 
         @error('descripcion')
